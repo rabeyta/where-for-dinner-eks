@@ -1,0 +1,15 @@
+apiVersion: tanzu.vmware.com/v1
+kind: SpringCloudGateway
+metadata:
+  name: gateway-where-for-dinner
+  namespace: eks
+spec:
+  service:
+    type: ClusterIP
+  api:
+    version: 1.0.0
+    groupId: where-for-dinner
+    serverUrl: http://where-for-dinner.eks.run.tap.ra.tapsme.org
+  env:
+  - name: spring.cloud.gateway.httpclient.connect-timeout
+    value: "90"
